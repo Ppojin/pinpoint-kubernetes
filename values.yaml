@@ -447,6 +447,7 @@ pinot:
     persistence:
       enabled: true
       size: 10Gi  # PRODUCTION: Size based on analytics data retention (100Gi+ recommended)
+      # storageClass: "fast-ssd"  # Use high-performance storage class
   # Pinot Controller - cluster management
   controller:
     replicas: 1  # PRODUCTION: Scale to 2+ for high availability
@@ -454,6 +455,7 @@ pinot:
     persistence:
       enabled: true
       size: 5Gi  # Controller metadata
+      # storageClass: "fast-ssd"  # Use high-performance storage class
   # Pinot Broker - query processing
   broker:
     replicas: 1  # PRODUCTION: Scale based on query load
@@ -462,3 +464,7 @@ pinot:
   minion:
     replicas: 1  # Scale based on background task requirements
     resources: {}
+    persistence:
+      enabled: true
+      size: 5Gi  # Controller metadata
+      # storageClass: "fast-ssd"  # Use high-performance storage class
